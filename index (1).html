@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09050f">
+  <meta name="description" content="Jôsy Esteryx Design Criativo: logos, posts personalizados, divulgação, cardápios, convites, tabelas de preços e materiais digitais.">
+  <title>Jôsy Esteryx | Design Criativo</title>
+  <style>
+    :root {
+      --bg: #08050d;
+      --surface: #120b1b;
+      --surface-2: #191025;
+      --purple: #a855f7;
+      --pink: #ed62df;
+      --lavender: #e8c5ff;
+      --white: #fffaff;
+      --muted: #c2b3cc;
+      --line: rgba(210, 157, 255, .2);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0;
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 10% 8%, rgba(139, 48, 207, .22), transparent 34rem),
+        radial-gradient(ellipse at 95% 48%, rgba(210, 49, 190, .11), transparent 30rem),
+        var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(8, 5, 13, .9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(15px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 46px; height: 46px; display: grid; place-items: center;
+      border: 1px solid var(--lavender); border-radius: 15px;
+      color: var(--lavender); font-family: Georgia, serif; font-size: 21px; font-weight: bold;
+      box-shadow: 0 0 22px rgba(168, 85, 247, .28), inset 0 0 15px rgba(168, 85, 247, .14);
+    }
+    .brand-name { display: block; font-family: Georgia, serif; font-size: 19px; font-weight: bold; line-height: 1.15; }
+    .brand-sub { display: block; color: var(--muted); font-size: 9px; letter-spacing: 3px; }
+    .nav-links { display: flex; gap: 25px; color: #e4d7ed; font-size: 13px; }
+    .nav-links a:hover, .footer-links a:hover { color: var(--lavender); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 12px 19px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px;
+      background: linear-gradient(110deg, #792dc0, #c343d0 68%, #873bd1);
+      color: white; font-weight: bold; font-size: 13px; cursor: pointer;
+      box-shadow: 0 8px 26px rgba(147, 49, 200, .24); transition: .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(185, 66, 220, .35); }
+    .button-secondary { background: transparent; border-color: var(--line); box-shadow: none; }
+    .menu-toggle { display: none; color: white; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; width: 44px; height: 44px; font-size: 22px; }
+    .hero { padding: 92px 0 76px; position: relative; overflow: hidden; }
+    .hero::before, .hero::after { content: ""; position: absolute; pointer-events: none; border: 1px solid rgba(197, 110, 255, .18); border-radius: 50%; transform: rotate(-24deg); }
+    .hero::before { width: 430px; height: 190px; right: -130px; top: 45px; box-shadow: 0 0 70px rgba(161, 62, 230, .12); }
+    .hero::after { width: 310px; height: 130px; right: -65px; top: 75px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 55px; align-items: center; position: relative; z-index: 1; }
+    .eyebrow { color: var(--lavender); font-size: 11px; font-weight: bold; letter-spacing: 2.7px; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 700px; margin: 17px 0; font: 700 clamp(43px, 6vw, 72px)/1.08 Georgia, serif; letter-spacing: -1.6px; }
+    .gradient-text { color: var(--pink); background: linear-gradient(90deg, #f2caff, #d65be9 55%, #a76dff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-copy { max-width: 590px; color: var(--muted); font-size: 17px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .hero-notes { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 27px; color: #d6c7e0; font-size: 12px; }
+    .tiny-star { color: var(--pink); margin-right: 6px; }
+    .hero-card {
+      min-height: 310px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 35px; border: 1px solid rgba(215, 173, 255, .38); border-radius: 28px;
+      background: linear-gradient(145deg, rgba(43, 19, 62, .92), rgba(15, 8, 23, .94));
+      text-align: center; box-shadow: 0 0 60px rgba(150, 54, 209, .17), inset 0 0 45px rgba(184, 78, 238, .07);
+      position: relative;
+    }
+    .hero-card::before { content: "✦"; position: absolute; top: 18px; right: 25px; color: var(--pink); font-size: 24px; text-shadow: 0 0 20px var(--pink); }
+    .monogram { color: var(--lavender); font: 700 clamp(78px, 10vw, 115px)/1 Georgia, serif; text-shadow: 0 0 25px rgba(207, 117, 255, .7); letter-spacing: -8px; }
+    .hero-card-name { margin: 17px 0 2px; font: 700 28px Georgia, serif; }
+    .hero-card-sub { color: var(--muted); letter-spacing: 5px; font-size: 10px; }
+    .hero-card-line { width: 75%; height: 1px; margin: 23px 0 14px; background: linear-gradient(90deg, transparent, var(--pink), transparent); }
+    .hero-card-note { color: #e7c9f7; font: italic 16px Georgia, serif; }
+    .trust-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(24, 12, 34, .58); }
+    .trust-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 20px 0; }
+    .trust-item { color: #e0d2e8; font-size: 12px; text-align: center; }
+    .trust-icon { color: var(--pink); margin-right: 7px; font-size: 18px; }
+    section { padding: 84px 0; }
+    .section-heading { max-width: 680px; margin: 0 auto 38px; text-align: center; }
+    .section-heading h2, .price-intro h2, .about-card h2, .contact-copy h2 { margin: 12px 0; font: 700 clamp(31px, 4vw, 45px)/1.15 Georgia, serif; }
+    .section-heading p, .price-intro p, .about-card p, .contact-copy p { color: var(--muted); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .service-card { padding: 25px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg, rgba(28, 15, 41, .88), rgba(14, 8, 20, .9)); transition: .2s ease; }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(220, 157, 255, .55); box-shadow: 0 12px 34px rgba(133, 43, 188, .14); }
+    .service-icon { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(205, 145, 255, .55); border-radius: 14px; color: var(--lavender); font-size: 22px; box-shadow: inset 0 0 18px rgba(173, 75, 240, .12); }
+    .service-card h3 { margin: 17px 0 7px; font: 700 19px Georgia, serif; }
+    .service-card p { margin-bottom: 0; color: var(--muted); font-size: 13px; }
+    .prices-section { background: linear-gradient(180deg, rgba(31, 14, 44, .55), rgba(10, 6, 16, .45)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .prices-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
+    .price-intro p { max-width: 480px; }
+    .price-note { display: flex; gap: 9px; margin-top: 22px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; color: #e2d3eb; font-size: 12px; }
+    .price-list { padding: 12px 25px; border: 1px solid rgba(210, 157, 255, .28); border-radius: 22px; background: rgba(15, 8, 22, .78); box-shadow: 0 0 40px rgba(144, 49, 199, .12); }
+    .price-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 19px 0; border-bottom: 1px solid rgba(210, 157, 255, .14); }
+    .price-row:last-child { border: 0; }
+    .price-name { display: flex; align-items: center; gap: 13px; font-weight: 600; font-size: 14px; }
+    .price-icon { width: 38px; height: 38px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; border: 1px solid rgba(206, 143, 255, .45); color: var(--lavender); }
+    .price-value { flex: 0 0 auto; padding: 8px 13px; border-radius: 999px; border: 1px solid rgba(237, 98, 223, .45); color: #fff; background: rgba(146, 45, 180, .23); font-weight: bold; font-size: 14px; }
+    .text-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .showcase-card { min-height: 190px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg, rgba(35, 16, 49, .92), rgba(13, 7, 19, .92)); }
+    .showcase-number { color: var(--pink); font: 700 34px Georgia, serif; }
+    .showcase-card h3 { margin: 9px 0 5px; font: 700 21px Georgia, serif; }
+    .showcase-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .about-card { padding: 42px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 35px; border: 1px solid var(--line); border-radius: 25px; background: linear-gradient(135deg, rgba(31, 14, 44, .94), rgba(15, 8, 22, .94)); }
+    .about-points { display: grid; grid-template-columns: 1fr 1fr; align-content: center; gap: 13px; }
+    .about-point { padding: 13px; border: 1px solid rgba(210, 157, 255, .16); border-radius: 13px; color: #e5d8ed; font-size: 12px; }
+    .about-point span { color: var(--pink); margin-right: 6px; }
+    .contact-section { padding-top: 35px; }
+    .contact-panel { padding: 42px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; border: 1px solid rgba(211, 157, 255, .34); border-radius: 25px; background: radial-gradient(ellipse at 0 0, rgba(126, 42, 180, .23), transparent 60%), #100919; }
+    .contact-social { display: inline-flex; align-items: center; gap: 10px; margin-top: 13px; padding: 11px 15px; border: 1px solid var(--line); border-radius: 999px; color: var(--lavender); font-size: 13px; }
+    .quote-form { display: grid; gap: 13px; }
+    .field label { display: block; margin-bottom: 6px; color: #eee3f3; font-size: 12px; font-weight: bold; }
+    .field input, .field select, .field textarea { width: 100%; padding: 12px 14px; color: white; border: 1px solid rgba(210, 157, 255, .23); border-radius: 12px; background: #0b0711; outline: none; }
+    .field select option { background: #100919; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(168, 85, 247, .12); }
+    .field textarea { min-height: 105px; resize: vertical; }
+    .form-help, .form-status { margin: 0; color: var(--muted); font-size: 11px; }
+    .form-status { color: var(--lavender); min-height: 18px; }
+    .copy-fallback { display: grid; gap: 10px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: rgba(24, 12, 34, .72); }
+    .copy-fallback label { color: var(--lavender); font-size: 12px; font-weight: bold; }
+    .copy-fallback textarea { width: 100%; min-height: 120px; resize: vertical; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: #0b0711; color: white; font: 13px/1.5 Arial, sans-serif; }
+    footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
+    .footer-brand { color: white; font: 700 20px Georgia, serif; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .reveal { animation: enter .65s both; }
+    @keyframes enter { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 850px) {
+      .nav-links { gap: 13px; }
+      .nav-cta { display: none; }
+      .hero-grid, .prices-layout { grid-template-columns: 1fr; gap: 35px; }
+      .hero-card { min-height: 250px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 22px 22px; flex-direction: column; background: #100919; border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .hero { padding: 65px 0 55px; }
+      .hero-copy { font-size: 15px; }
+      .trust-inner { grid-template-columns: 1fr 1fr; }
+      section { padding: 63px 0; }
+      .services-grid, .text-showcase { grid-template-columns: 1fr; }
+      .price-list { padding: 4px 14px; }
+      .price-row { gap: 8px; }
+      .price-name { font-size: 12px; gap: 8px; }
+      .price-icon { width: 33px; height: 33px; }
+      .price-value { padding: 7px 9px; font-size: 12px; }
+      .about-card, .contact-panel { padding: 25px 19px; }
+      .about-points { grid-template-columns: 1fr 1fr; }
+      .contact-panel { grid-template-columns: 1fr; gap: 24px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Jôsy Esteryx, início">
+        <span class="brand-mark">JÉ</span>
+        <span><span class="brand-name">Jôsy Esteryx</span><span class="brand-sub">DESIGN CRIATIVO</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a><a href="#precos">Preços</a><a href="#portfolio">Diferenciais</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+      </nav>
+      <a class="button nav-cta" href="https://www.instagram.com/direct/t/18079445900176839/">Falar no Instagram ↗</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Design feito com criatividade</span>
+          <h1>Suas ideias merecem virar <span class="gradient-text">arte.</span></h1>
+          <p class="hero-copy">Dê mais personalidade à sua marca, ao seu negócio ou ao seu projeto. Criamos designs personalizados com cuidado em cada detalhe.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://www.instagram.com/direct/t/18079445900176839/">Quero fazer meu pedido →</a>
+            <a class="button button-secondary" href="#servicos">Conhecer serviços</a>
+          </div>
+          <div class="hero-notes"><span><b class="tiny-star">✦</b> Criação personalizada</span><span><b class="tiny-star">✦</b> Atendimento atencioso</span></div>
+        </div>
+        <div class="hero-card" aria-label="Identidade visual Jôsy Esteryx">
+          <div class="monogram">JÉ</div>
+          <div class="hero-card-name">Jôsy Esteryx</div>
+          <div class="hero-card-sub">DESIGN CRIATIVO</div>
+          <div class="hero-card-line"></div>
+          <div class="hero-card-note">Transformando suas ideias em arte!</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip"><div class="container trust-inner">
+      <div class="trust-item"><span class="trust-icon">✧</span>Qualidade em cada detalhe</div>
+      <div class="trust-item"><span class="trust-icon">◷</span>Entrega no prazo combinado</div>
+      <div class="trust-item"><span class="trust-icon">♡</span>Atendimento personalizado</div>
+      <div class="trust-item"><span class="trust-icon">✦</span>Criado para você</div>
+    </div></div>
+
+    <section id="servicos"><div class="container">
+      <div class="section-heading"><span class="eyebrow">O que fazemos</span><h2>Design para dar vida às <span class="gradient-text">suas ideias</span></h2><p>Peças criativas para divulgar, organizar e valorizar o que você faz.</p></div>
+      <div class="services-grid">
+        <article class="service-card"><div class="service-icon">✒</div><h3>Logos e identidade visual</h3><p>Uma marca com personalidade, feita para transmitir a essência do seu negócio.</p></article>
+        <article class="service-card"><div class="service-icon">▧</div><h3>Posts e divulgação</h3><p>Artes personalizadas para apresentar novidades, produtos e serviços nas redes sociais.</p></article>
+        <article class="service-card"><div class="service-icon">▤</div><h3>Tabelas de preços</h3><p>Informações organizadas em uma arte bonita, clara e fácil de compartilhar.</p></article>
+        <article class="service-card"><div class="service-icon">♧</div><h3>Cardápios digitais</h3><p>Apresente seus lanches, pratos e bebidas com uma composição visual caprichada.</p></article>
+        <article class="service-card"><div class="service-icon">♡</div><h3>Convites digitais</h3><p>Convites personalizados para deixar seus momentos ainda mais especiais.</p></article>
+        <article class="service-card"><div class="service-icon">▣</div><h3>Materiais de estudo e slides</h3><p>Conteúdos visuais organizados para facilitar a leitura e a apresentação de ideias.</p></article>
+      </div>
+    </div></section>
+
+    <section class="prices-section" id="precos"><div class="container prices-layout">
+      <div class="price-intro"><span class="eyebrow">Tabela de preços</span><h2>Um design especial com <span class="gradient-text">preço acessível.</span></h2><p>Confira alguns dos serviços e valores. Cada trabalho é personalizado de acordo com o gosto, as preferências e as necessidades de cada cliente.</p><div class="price-note"><span class="tiny-star">✦</span><span>Para cardápios, convites, materiais de estudo e outros projetos, <b>consulte o orçamento.</b></span></div></div>
+      <div class="price-list" aria-label="Preços dos serviços">
+        <div class="price-row"><div class="price-name"><span class="price-icon">✎</span>Post personalizado</div><div class="price-value">R$ 15,00</div></div>
+        <div class="price-row"><div class="price-name"><span class="price-icon">♧</span>Divulgação nas redes sociais por 6 dias</div><div class="price-value">R$ 30,00</div></div>
+        <div class="price-row"><div class="price-name"><span class="price-icon">✒</span>Criação de logotipo</div><div class="price-value">R$ 10,00</div></div>
+        <div class="price-row"><div class="price-name"><span class="price-icon">％</span>Tabela de preços personalizada</div><div class="price-value">R$ 15,00</div></div>
+      </div>
+    </div></section>
+
+    <section id="portfolio"><div class="container">
+      <div class="section-heading"><span class="eyebrow">Nosso cuidado em cada projeto</span><h2>Um trabalho feito com <span class="gradient-text">atenção.</span></h2><p>Mais do que uma arte bonita, cada criação busca comunicar sua ideia de forma clara e especial.</p></div>
+      <div class="text-showcase">
+        <article class="showcase-card"><div class="showcase-number">01</div><div><h3>Do seu jeito</h3><p>As cores, o estilo e os detalhes são pensados de acordo com o que você precisa.</p></div></article>
+        <article class="showcase-card"><div class="showcase-number">02</div><div><h3>Visual organizado</h3><p>Informações distribuídas com clareza para facilitar a leitura e valorizar o conteúdo.</p></div></article>
+        <article class="showcase-card"><div class="showcase-number">03</div><div><h3>Para diferentes ideias</h3><p>Criações para pequenos negócios, redes sociais, eventos e atividades de estudo.</p></div></article>
+        <article class="showcase-card"><div class="showcase-number">04</div><div><h3>Atendimento próximo</h3><p>Converse sobre seu projeto e explique o que imaginou antes de pedir seu orçamento.</p></div></article>
+      </div>
+    </div></section>
+
+    <section id="sobre"><div class="container"><div class="about-card">
+      <div><span class="eyebrow">Sobre a Jôsy Esteryx</span><h2>Criatividade em cada <span class="gradient-text">detalhe.</span></h2><p>A Jôsy Esteryx transforma ideias em artes digitais. O objetivo é criar peças bonitas, organizadas e personalizadas, valorizando a identidade de cada cliente e o que ele deseja comunicar.</p></div>
+      <div class="about-points"><div class="about-point"><span>✦</span>Atenção aos detalhes</div><div class="about-point"><span>♡</span>Feito sob medida</div><div class="about-point"><span>✧</span>Visual criativo</div><div class="about-point"><span>✓</span>Compromisso com o pedido</div></div>
+    </div></div></section>
+
+    <section class="contact-section" id="contato"><div class="container"><div class="contact-panel">
+      <div class="contact-copy"><span class="eyebrow">Vamos criar juntos?</span><h2>Conte sua ideia. <span class="gradient-text">A gente dá forma a ela.</span></h2><p>Fale com a Jôsy Esteryx pelo Instagram para tirar dúvidas, explicar seu projeto e solicitar um orçamento.</p><a class="contact-social" href="https://www.instagram.com/direct/t/18079445900176839/"><span>◎</span> Abrir conversa no Instagram ↗</a></div>
+      <form class="quote-form" id="quoteForm">
+        <div class="field"><label for="clientName">Seu nome</label><input id="clientName" name="clientName" type="text" placeholder="Como podemos te chamar?" required></div>
+        <div class="field"><label for="serviceSelect">Qual serviço você procura?</label><select id="serviceSelect" name="service" required><option value="" disabled selected>Selecione um serviço</option><option>Post personalizado</option><option>Divulgação nas redes sociais</option><option>Criação de logotipo</option><option>Tabela de preços personalizada</option><option>Cardápio ou convite digital</option><option>Material de estudo ou slides</option><option>Outro projeto</option></select></div>
+        <div class="field"><label for="projectDetails">Conte um pouco sobre o projeto</label><textarea id="projectDetails" name="details" placeholder="Cores, tema, quantidade ou alguma ideia que já tenha..." required></textarea></div>
+        <button class="button" type="submit">Copiar mensagem e abrir Instagram →</button>
+        <p class="form-help">Ao clicar, o Instagram será aberto em outra aba e a mensagem será copiada para você colar no Direct.</p>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+        <div class="copy-fallback" id="copyFallback" hidden>
+          <label for="fallbackMessage">A cópia automática foi bloqueada. Selecione e copie a mensagem abaixo:</label>
+          <textarea id="fallbackMessage" readonly></textarea>
+          <button class="button button-secondary" type="button" id="fallbackCopy">Tentar copiar novamente</button>
+        </div>
+      </form>
+    </div></div></section>
+  </main>
+
+  <footer><div class="container footer-inner">
+    <div><div class="footer-brand">Jôsy Esteryx</div><div>Design Criativo · Transformando ideias em arte.</div></div>
+    <div class="footer-links"><a href="#servicos">Serviços</a><a href="#precos">Preços</a><a href="#contato">Contato</a><a href="https://www.instagram.com/direct/t/18079445900176839/">Instagram ↗</a></div>
+    <div>© <span id="year"></span> Jôsy Esteryx. Todos os direitos reservados.</div>
+  </div></footer>
+
+  <script>
+    const directLink = 'https://www.instagram.com/direct/t/18079445900176839/';
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const opened = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(opened));
+      menuToggle.textContent = opened ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+
+    const quoteForm = document.getElementById('quoteForm');
+    const formStatus = document.getElementById('formStatus');
+    const copyFallback = document.getElementById('copyFallback');
+    const fallbackMessage = document.getElementById('fallbackMessage');
+
+    // Usa primeiro a Clipboard API e, se ela não estiver disponível, tenta o método clássico.
+    async function copyText(text) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      } catch (_) {
+        // Continua para a alternativa compatível com páginas abertas como arquivo local.
+      }
+
+      try {
+        const temporary = document.createElement('textarea');
+        temporary.value = text;
+        temporary.setAttribute('readonly', '');
+        temporary.style.position = 'fixed';
+        temporary.style.left = '0';
+        temporary.style.top = '0';
+        temporary.style.width = '2px';
+        temporary.style.height = '2px';
+        temporary.style.padding = '0';
+        temporary.style.border = '0';
+        temporary.style.opacity = '0.01';
+        document.body.appendChild(temporary);
+        temporary.focus();
+        temporary.select();
+        temporary.setSelectionRange(0, temporary.value.length);
+        const success = document.execCommand('copy');
+        temporary.remove();
+        return success;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    quoteForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const name = document.getElementById('clientName').value.trim();
+      const service = document.getElementById('serviceSelect').value;
+      const details = document.getElementById('projectDetails').value.trim();
+      const message = `Olá, Jôsy Esteryx! Meu nome é ${name}. Tenho interesse em: ${service}.\n\nDetalhes do projeto: ${details}\n\nPode me passar um orçamento?`;
+
+      // Abre o Direct imediatamente durante o clique. Se esperar a cópia terminar,
+      // alguns navegadores entendem a abertura como popup e a bloqueiam.
+      let instagramOpened = false;
+      try {
+        const instagramTab = window.open(directLink, '_blank');
+        if (instagramTab) {
+          instagramTab.opener = null;
+          instagramOpened = true;
+        }
+      } catch (_) {
+        instagramOpened = false;
+      }
+
+      formStatus.textContent = 'Preparando sua mensagem...';
+      const copied = await copyText(message);
+      if (copied) {
+        copyFallback.hidden = true;
+        formStatus.textContent = instagramOpened
+          ? 'Mensagem copiada! No Instagram que abriu, clique no campo da conversa e cole com Ctrl + V.'
+          : 'Mensagem copiada! O navegador bloqueou a nova aba; use “Abrir conversa no Instagram” e cole com Ctrl + V.';
+      } else {
+        fallbackMessage.value = message;
+        copyFallback.hidden = false;
+        fallbackMessage.focus();
+        fallbackMessage.select();
+        formStatus.textContent = instagramOpened
+          ? 'O Instagram foi aberto. A cópia automática foi bloqueada; copie a mensagem na caixa abaixo.'
+          : 'A cópia automática e a abertura de nova aba foram bloqueadas. Copie a mensagem abaixo e use “Abrir conversa no Instagram”.';
+      }
+    });
+
+    document.getElementById('fallbackCopy').addEventListener('click', async () => {
+      const copied = await copyText(fallbackMessage.value);
+      if (copied) {
+        copyFallback.hidden = true;
+        formStatus.textContent = 'Mensagem copiada! Cole no campo da conversa do Instagram com Ctrl + V.';
+      } else {
+        fallbackMessage.focus();
+        fallbackMessage.select();
+        formStatus.textContent = 'A cópia automática não foi permitida. A mensagem está selecionada: pressione Ctrl + C para copiar.';
+      }
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
